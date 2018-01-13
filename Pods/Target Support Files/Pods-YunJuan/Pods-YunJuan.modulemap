@@ -1,0 +1,6 @@
+framework module Pods_YunJuan {
+  umbrella header "Pods-YunJuan-umbrella.h"
+
+  export *
+  module * { export * }
+}
