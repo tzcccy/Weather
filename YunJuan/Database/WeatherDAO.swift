@@ -20,11 +20,14 @@ class WeatherDAO: NSObject {
     }
     
     
-    func insert(weatherJsonStr : String, cityName : String) -> Bool{
+    func insert(weatherJsonStr : String?, cityName : String?) -> Bool{
+        if weatherJsonStr == nil || cityName == nil {
+            return false
+        }
         var result : Bool  = true;
         let sql = "INSERT INTO WEATHER(city,weather) VALUES(?,?)"
         dbQueue?.inDatabase({ (db) in
-            if db.executeUpdate(sql, withArgumentsIn: [cityName,weatherJsonStr]) {
+            if db.executeUpdate(sql, withArgumentsIn: [cityName!,weatherJsonStr!]) {
             }else{
                 result = false
             }
@@ -47,11 +50,40 @@ class WeatherDAO: NSObject {
         return weather
     }
     
-    func deleteCity(city:String) -> Bool{
+    
+    func selectAll() -> [Weather]{
+        var arr = [Weather]()
+        let sql = "SELECT * FROM WEATHER"
+        dbQueue?.inDatabase({ (db) in
+            let result = try? db.executeQuery(sql, values: [])
+            while (result?.next())! {
+                
+                let weatherJson = result?.string(forColumn: "weather")
+                let weather = Weather.deserialize(from: weatherJson)
+                arr.append(weather!)
+            }
+        })
+        return arr
+    }
+    
+    func updateWeather(weather : Weather) -> Bool{
+        var result : Bool?
+        let sql = "UPDATE WEATHER SET weather = ? WHERE city = ?"
+        dbQueue?.inDatabase({ (db) in
+            result = db.executeUpdate(sql, withArgumentsIn: [weather.toJSONString()!,weather.city!.location!])
+        })
+        
+        return result!
+    }
+    
+    func deleteCity(city:String?) -> Bool{
+        if city == nil {
+            return false
+        }
         var result:Bool?
         let sql = "DELETE FROM WEATHER WHERE city = ?"
         dbQueue?.inDatabase({ (db) in
-            result = db.executeUpdate(sql, withArgumentsIn: [city])
+            result = db.executeUpdate(sql, withArgumentsIn: [city!])
         })
         return result!
     }

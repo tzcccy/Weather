@@ -22,23 +22,30 @@ public class YJNetworkTool: AFHTTPSessionManager {
         return tools
     }()
     
-    func request(method: HTResqustMethod , urlString: String, parameters: AnyObject?,success : @escaping([String : Any]) -> (), failure : @escaping(Error?) -> ()){
+    func request(method: HTResqustMethod , urlString: String, parameters: AnyObject?,success : @escaping([String : Any]) -> (), failure : @escaping(String) -> ()){
         
         // 定义一个请求成功之后要执行的闭包
         // 成功闭包
         let successBlock = { (task: URLSessionDataTask, responseObj: Any?) in
             if(responseObj != nil){
-                success(responseObj as! [String : Any])
+                let dic = (responseObj as? [String : Any])
+                if dic == nil {
+                    failure(ErrorMsg)
+                }else{
+                    success(dic!)
+                }
+                
             }else{
                 //失败处理
-                failure(nil)
+                failure(ErrorMsg)
             }
             
         }
         
         // 失败的闭包
         let failureBlock = { (task: URLSessionDataTask?, error: Error) in
-            failure(error)
+            YJLog(error.localizedDescription)
+            failure(NetWorkError)
         }
         
         // Get 请求

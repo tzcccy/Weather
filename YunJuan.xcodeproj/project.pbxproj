@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		296289DB200B18BF00D53397 /* ConstValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296289DA200B18BF00D53397 /* ConstValue.swift */; };
 		2967F2EA2009F2A400E94FBC /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2967F2E92009F2A400E94FBC /* Weather.swift */; };
 		2967F2EC2009F94A00E94FBC /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2967F2EB2009F94A00E94FBC /* City.swift */; };
 		2967F2EE2009FA9100E94FBC /* Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2967F2ED2009FA9100E94FBC /* Update.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		15630AE46F13B62B53CD1C38 /* Pods-YunJuan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YunJuan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YunJuan/Pods-YunJuan.debug.xcconfig"; sourceTree = "<group>"; };
+		296289DA200B18BF00D53397 /* ConstValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstValue.swift; sourceTree = "<group>"; };
 		2967F2E92009F2A400E94FBC /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Weather.swift; path = YunJuan/Model/Weather.swift; sourceTree = SOURCE_ROOT; };
 		2967F2EB2009F94A00E94FBC /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = City.swift; path = YunJuan/Model/City.swift; sourceTree = SOURCE_ROOT; };
 		2967F2ED2009FA9100E94FBC /* Update.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Update.swift; path = YunJuan/Model/Update.swift; sourceTree = SOURCE_ROOT; };
@@ -118,6 +120,7 @@
 				29EDB16B2009A3BA0029FC56 /* LaunchScreen.storyboard */,
 				29EDB16E2009A3BA0029FC56 /* Info.plist */,
 				29F85C0A2009A9FD00A6FB9F /* YunJuan-Bridging-Header.h */,
+				296289DA200B18BF00D53397 /* ConstValue.swift */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				2967F2F42009FE8000E94FBC /* HourlyWeather.swift in Sources */,
 				299142182009DA4800792783 /* WeatherNetwork.swift in Sources */,
 				2967F2EE2009FA9100E94FBC /* Update.swift in Sources */,
+				296289DB200B18BF00D53397 /* ConstValue.swift in Sources */,
 				2967F2FA200A239900E94FBC /* WeatherDAO.swift in Sources */,
 				2967F2FC200A2CA300E94FBC /* YJWeatherService.swift in Sources */,
 				2967F2EC2009F94A00E94FBC /* City.swift in Sources */,
@@ -513,6 +517,33 @@
 				INFOPLIST_FILE = YunJuan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/AFNetworking/AFNetworking.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FMDB/FMDB.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/HandyJSON/HandyJSON.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MBProgressHUD/MBProgressHUD.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/MJRefresh/MJRefresh.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Masonry/Masonry.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SDWebImage/SDWebImage.framework/Headers\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/BuglyHotfix\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/JCore\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/JPush\"",
+					"-D",
+					DEBUG,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.tzcccy.YunJuan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "YunJuan/YunJuan-Bridging-Header.h";

@@ -12,7 +12,7 @@ class WeatherNetwork: NSObject {
     static let shareInstance:WeatherNetwork = WeatherNetwork()
     
     
-    func getWeather( location:String, success: @escaping(Weather?) -> (), failure: @escaping(String) -> ()) -> Void
+    func getWeather( location:String, success: @escaping(Weather) -> (), failure: @escaping(String) -> ()) -> Void
     {
         let networkManager = YJNetworkTool.shareManager
         let param = ["location":location,"key":"2e59aaf980bd445d9e42dd1492e04bcf"]
@@ -20,25 +20,27 @@ class WeatherNetwork: NSObject {
             
             //先做json to model 的转换
             let weatherArray = [Weather].deserialize(from: (dic["HeWeather6"] as! [Any]))
+            if weatherArray == nil {
+                failure(ErrorMsg)
+                YJLog("JSON to Model Error")
+                return
+            }
+            
             let weather:Weather? = weatherArray?[0]
             if weather == nil {
-                failure("无法访问")
+                failure(ErrorMsg)
+                YJLog("JSON to Model Error")
                 return
             }
             if weather!.status == WeatherStatus.ok {
-                success(weather)
+                success(weather!)
                 return
             }
             
-            failure(weather!.status!.rawValue)
+            failure(weather!.status?.rawValue ?? ErrorMsg)
             
         }) { (error) in
-            if error == nil {
-                failure("无法访问")
-            }else{
-                failure(error!.localizedDescription)
-            }
-            
+            failure(error)
         }
     }
     
