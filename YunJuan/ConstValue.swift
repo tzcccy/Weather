@@ -13,11 +13,12 @@ let MaxUpdateHour = 3
 
 let ErrorMsg = "无法访问"
 let NetWorkError = "网络错误"
+let DefaultCityName = "DefaultCityName"
+
+let YJFontGrayColor = UIColor(red: 100/255.0, green: 100/255.0, blue: 100/255.0, alpha: 0.8)
 
 
-func YJLog<T>(_ message : T, filename : String = #file, methodName: String = #function, lineNumber: Int = #line){
-    #if DEBUG
-        let logStr : String = (filename as NSString).pathComponents.last!.replacingOccurrences(of: "swift", with: "")
-        print("类：\(logStr) 方法：\(methodName) 行：[\(lineNumber)] 数据：\(message)")
-    #endif
-}
+let WeatherUpdateNotification = "WeatherUpdateNotification"
+
+
+

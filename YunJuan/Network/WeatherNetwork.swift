@@ -15,9 +15,9 @@ class WeatherNetwork: NSObject {
     func getWeather( location:String, success: @escaping(Weather) -> (), failure: @escaping(String) -> ()) -> Void
     {
         let networkManager = YJNetworkTool.shareManager
-        let param = ["location":location,"key":"2e59aaf980bd445d9e42dd1492e04bcf"]
+        let param = ["location":location,"key":"4d9d9383c876415a92bb9e2fddba0b15"]      //4d9d9383c876415a92bb9e2fddba0b15   //2e59aaf980bd445d9e42dd1492e04bcf
         networkManager.request(method: .Get, urlString: "https://free-api.heweather.com/s6/weather", parameters: param as AnyObject, success: { (dic) in
-            
+            YJLog(dic)
             //先做json to model 的转换
             let weatherArray = [Weather].deserialize(from: (dic["HeWeather6"] as! [Any]))
             if weatherArray == nil {
