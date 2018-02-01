@@ -21,7 +21,7 @@ class WeatherController: UIViewController {
     
     private let todayStatusView = TodayWeatherStatus()
     private let hourlyWeatherView = HourlyWeatherView()
-    
+    private let sevenDaysForecast = SevenDaysForecastView()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,6 +61,7 @@ class WeatherController: UIViewController {
     private func updateWeather(_ weather : Weather){
         todayStatusView.updateWeather(weather: weather)
         hourlyWeatherView.updateWeather(weather: weather)
+        sevenDaysForecast.update(dailyforecasts: weather.dailyForecast!)
     }
     
 
@@ -129,6 +130,9 @@ class WeatherController: UIViewController {
         scrollView.addSubview(containerView)
         containerView.addSubview(todayStatusView)
         containerView.addSubview(hourlyWeatherView)
+        containerView.addSubview(sevenDaysForecast)
+        
+        
         
         backImageView.mas_updateConstraints { (make) in
             make?.edges.equalTo()(self.view)
@@ -143,17 +147,22 @@ class WeatherController: UIViewController {
         containerView.mas_updateConstraints { (make) in
             make?.edges.equalTo()(scrollView)
             make?.width.equalTo()(scrollView.mas_width)
-            make?.bottom.equalTo()(hourlyWeatherView)
+            make?.bottom.equalTo()(sevenDaysForecast)
         }
         
         todayStatusView.mas_updateConstraints { (make) in
             make?.left.right().equalTo()(containerView)
-            make?.top.equalTo()(containerView)?.offset()(80)
-            make?.height.equalTo()(self.view)?.multipliedBy()(0.8)
+            make?.top.equalTo()(containerView)//?.offset()(80)
+            make?.height.equalTo()(self.view)
         }
         
         hourlyWeatherView.mas_updateConstraints { (make) in
             make?.top.equalTo()(todayStatusView.mas_bottom)
+            make?.left.right().equalTo()(containerView)
+        }
+        
+        sevenDaysForecast.mas_updateConstraints { (make) in
+            make?.top.equalTo()(hourlyWeatherView.mas_bottom)?.offset()(10)
             make?.left.right().equalTo()(containerView)
         }
         

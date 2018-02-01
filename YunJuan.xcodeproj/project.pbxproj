@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2915DB7A20109676005CA6BD /* TodayWeatherStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2915DB7920109676005CA6BD /* TodayWeatherStatus.swift */; };
+		291B898020187102000E4375 /* SevenDaysForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291B897F20187102000E4375 /* SevenDaysForecastView.swift */; };
+		291B89822018784A000E4375 /* DayForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291B89812018784A000E4375 /* DayForecastView.swift */; };
 		293C55EA2011BD0A0023262F /* HourForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293C55E92011BD0A0023262F /* HourForecastView.swift */; };
 		293C55EC2011CF450023262F /* HourlyWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293C55EB2011CF450023262F /* HourlyWeatherView.swift */; };
 		29569544200B47AA00AFAF7B /* YJGlobalTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29569543200B47AA00AFAF7B /* YJGlobalTools.swift */; };
@@ -35,6 +37,8 @@
 /* Begin PBXFileReference section */
 		15630AE46F13B62B53CD1C38 /* Pods-YunJuan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YunJuan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YunJuan/Pods-YunJuan.debug.xcconfig"; sourceTree = "<group>"; };
 		2915DB7920109676005CA6BD /* TodayWeatherStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayWeatherStatus.swift; sourceTree = "<group>"; };
+		291B897F20187102000E4375 /* SevenDaysForecastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SevenDaysForecastView.swift; sourceTree = "<group>"; };
+		291B89812018784A000E4375 /* DayForecastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayForecastView.swift; sourceTree = "<group>"; };
 		293C55E92011BD0A0023262F /* HourForecastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourForecastView.swift; sourceTree = "<group>"; };
 		293C55EB2011CF450023262F /* HourlyWeatherView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourlyWeatherView.swift; sourceTree = "<group>"; };
 		29569543200B47AA00AFAF7B /* YJGlobalTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YJGlobalTools.swift; sourceTree = "<group>"; };
@@ -199,6 +203,8 @@
 				2915DB7920109676005CA6BD /* TodayWeatherStatus.swift */,
 				293C55E92011BD0A0023262F /* HourForecastView.swift */,
 				293C55EB2011CF450023262F /* HourlyWeatherView.swift */,
+				291B897F20187102000E4375 /* SevenDaysForecastView.swift */,
+				291B89812018784A000E4375 /* DayForecastView.swift */,
 			);
 			name = "View(视图)";
 			path = View;
@@ -375,6 +381,7 @@
 				2967F2EE2009FA9100E94FBC /* Update.swift in Sources */,
 				293C55EA2011BD0A0023262F /* HourForecastView.swift in Sources */,
 				296289DB200B18BF00D53397 /* ConstValue.swift in Sources */,
+				291B89822018784A000E4375 /* DayForecastView.swift in Sources */,
 				2967F2FA200A239900E94FBC /* WeatherDAO.swift in Sources */,
 				2967F2FC200A2CA300E94FBC /* YJWeatherService.swift in Sources */,
 				293C55EC2011CF450023262F /* HourlyWeatherView.swift in Sources */,
@@ -382,6 +389,7 @@
 				299142082009B8A900792783 /* YJNetworkTool.swift in Sources */,
 				29EDB1632009A3BA0029FC56 /* AppDelegate.swift in Sources */,
 				2915DB7A20109676005CA6BD /* TodayWeatherStatus.swift in Sources */,
+				291B898020187102000E4375 /* SevenDaysForecastView.swift in Sources */,
 				2967F2EA2009F2A400E94FBC /* Weather.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,6 +518,7 @@
 			baseConfigurationReference = 15630AE46F13B62B53CD1C38 /* Pods-YunJuan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 7SG97J5BB3;
 				HEADER_SEARCH_PATHS = (
@@ -574,6 +583,7 @@
 			baseConfigurationReference = BFF87072B1BE833FB9ACD048 /* Pods-YunJuan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 7SG97J5BB3;
 				HEADER_SEARCH_PATHS = (

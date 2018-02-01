@@ -11,7 +11,7 @@ import HandyJSON
 class DailyForecast: HandyJSON {
 
     /// 预测时间 YYYY-MM-DD
-    var String : String?
+    var date : String?
     /// 日出时间 HH：mm
     var sr : String?
     /// 日落时间 HH:mm

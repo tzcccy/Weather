@@ -78,7 +78,7 @@ class TodayWeatherStatus: UIView {
     
     override func layoutSubviews() {
         publishLabel.mas_updateConstraints{ (make) in
-            make?.top.equalTo()(self.mas_top)?.offset()(20)
+            make?.top.equalTo()(self.mas_top)?.offset()(80)
             make?.right.equalTo()(self.mas_right)?.offset()(-20)
         }
         

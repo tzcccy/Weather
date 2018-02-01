@@ -57,3 +57,27 @@ func choseBackImage(condCode : String) -> UIImage{
 func YJColor(_ r:CGFloat,_ g : CGFloat,_ b : CGFloat, _ a : CGFloat) -> UIColor{
     return UIColor(red: r/255, green: g/255, blue: b/255, alpha: a)
 }
+
+
+func dayOfWeek(date : Date) -> String{
+    let interval = date.timeIntervalSince1970
+    let days = Int(interval / 86400)
+    switch days % 7 {
+    case 1:
+        return "星期一"
+    case 2:
+        return "星期二"
+    case 3:
+        return "星期三"
+    case 4:
+        return "星期四"
+    case 5:
+        return "星期五"
+    case 6:
+        return "星期六"
+    case 0:
+        return "星期日"
+    default:
+        return ""
+    }
+}
